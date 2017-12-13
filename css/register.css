@@ -6,3 +6,9 @@
 h1{
   text-align: center;
 }
+.ok{
+  border-color: green;
+}
+.error{
+  border-color: red;
+}

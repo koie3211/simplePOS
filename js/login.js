@@ -11,7 +11,7 @@ $(document).on('ready',function(){
       },
       dataType:'html'
     }).done(function(data){
-      console.log(data);
+      //console.log(data);
         if(data =='yes'){
           window.location.href = 'index.php';
         }

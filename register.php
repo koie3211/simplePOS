@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/register.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/register.js">
+
+    </script>
     <title>註冊</title>
   </head>
   <body>
@@ -33,17 +37,17 @@
 
       <div class="form-group">
         <label for="username">帳號</label>
-        <input type="text" class="form-control" id="username" placeholder="Enter name">
+        <input type="text" class="form-control" id="username" placeholder="Enter username">
       </div>
 
       <div class="form-group">
         <label for="password">密碼</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
+        <input type="password" class="form-control" id="password" placeholder="Enter Password">
       </div>
 
       <div class="form-group">
         <label for="repassword">再次輸入密碼</label>
-        <input type="password" class="form-control" id="repassword" placeholder="Password">
+        <input type="password" class="form-control" id="repassword" placeholder="Re Password">
       </div>
 
       <button type="submit" class="btn btn-primary">送出</button>
