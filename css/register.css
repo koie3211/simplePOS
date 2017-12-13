@@ -6,9 +6,8 @@
 h1{
   text-align: center;
 }
-.ok{
-  border-color: green;
-}
-.error{
-  border-color: red;
+#level{
+  font-size: 10px;
+  color: #aaa;
+  text-align: center;
 }

@@ -1,10 +1,13 @@
 <?php
-  $a = strlen($_POST['username']);
+  require_once('dbconfig.php');
+  $user = $_POST['username'];
 
-  if($a % 2 ==0){
-    echo 'yes';
-  }else {
+  $sql = "SELECT `name` FROM `user_account` WHERE `username` = '{$user}'";
+  $result = mysqli_query($link,$sql);
+  if(mysqli_num_rows($result)>=1){
     echo 'no';
+  }else{
+    echo 'yes';
   }
 
   ?>
