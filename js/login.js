@@ -11,9 +11,11 @@ $(document).on('ready',function(){
       },
       dataType:'html'
     }).done(function(data){
-      //console.log(data);
+      console.log(data);
         if(data =='yes'){
           window.location.href = 'index.php';
+        }else {
+          window.location.href = 'login.php?err=1';
         }
     });
     return false;

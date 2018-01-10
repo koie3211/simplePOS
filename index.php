@@ -6,18 +6,17 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/index.css">
     <title>進銷存貨管理系統</title>
   </head>
   <body>
-    <a href="logout.php">登出</a>
-    <div class="menu">
-      blr
-      blr
-      blr
-    </div>
+    <?php include_once("menu.php") ?>
+    <iframe class="main">
+    </iframe>
   </body>
 </html>
 <?php else: ?>
-  <?php header('Location:login.php'); ?>
+  <?php header('Location:login.php?err=1'); ?>
 <?php endif; ?>

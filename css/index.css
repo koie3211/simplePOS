@@ -1,6 +1,10 @@
-.menu{
-  height: 100%;
-  width:30%;
-  margin: 0 auto 0 0;
-  background-color: #aaa;
+.main{
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: 1000px;
+  width: 80%;
+  background-color: #bbb;
+
+
 }

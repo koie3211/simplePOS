@@ -1,13 +1,12 @@
 <?php
-  require_once('dbconfig.php');
+  require_once 'user_service.class.php';
   $user = $_POST['username'];
-
-  $sql = "SELECT `name` FROM `user_account` WHERE `username` = '{$user}'";
-  $result = mysqli_query($link,$sql);
-  if(mysqli_num_rows($result)>=1){
-    echo 'no';
+  $userService = new UserService();
+  $check = $userService->CheckUsername($user);
+  if($check =="no"){
+    echo "no";
   }else{
-    echo 'yes';
+    echo "yes";
   }
 
   ?>

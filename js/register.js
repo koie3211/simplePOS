@@ -15,6 +15,7 @@ $(document).on('ready',function(){
         },
         dataType : 'html'
       }).done(function(data){
+        //console.log(data);
         if(data == 'yes'){
           $('#username').removeClass('is-invalid').addClass("is-valid");
           $('#check-username').val('true');

@@ -1,5 +1,5 @@
 <?php
-  require_once('dbconfig.php');
+  require_once 'user_service.class.php';
 
   $name = $_POST['name'];
   $ssd = $_POST['ssd'];
@@ -7,13 +7,11 @@
   $email = $_POST['email'];
   $user = $_POST['user'];
   $pass = md5($_POST['pass']);
-
-  $sql = "INSERT INTO `user_account`(`name`, `ssd`, `birthday`, `email`, `username`, `password`, `position`)
-                             VALUES ('{$name}','{$ssd}','{$birth}','{$email}','{$user}','{$pass}',0)";
-  $result = mysqli_query($_SESSION['link'],$sql);
-  if($result){
-    echo 'yes';
+  $userService = new UserService();
+  $b = $userService->AddUser($name,$ssd,$birth,$email,$user,$pass);
+  if($b =="1"){
+    echo "yes";
   }else {
-    echo 'no';
+    echo "no";
   }
  ?>
