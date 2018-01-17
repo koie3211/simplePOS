@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機: 127.0.0.1
--- 產生時間： 2018-01-10 10:31:10
+-- 產生時間： 2018-01-17 17:00:39
 -- 伺服器版本: 10.1.21-MariaDB
 -- PHP 版本： 5.6.30
 
@@ -19,6 +19,32 @@ SET time_zone = "+00:00";
 --
 -- 資料庫： `pos`
 --
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `category`
+--
+
+CREATE TABLE `category` (
+  `c_id` int(11) NOT NULL COMMENT '類別編號',
+  `c_name` varchar(20) NOT NULL COMMENT '類別名稱'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- 資料表的匯出資料 `category`
+--
+
+INSERT INTO `category` (`c_id`, `c_name`) VALUES
+(0, '鮮食新品'),
+(1, '御飯糰'),
+(2, '光合'),
+(3, '台式料理'),
+(4, '風味小食'),
+(5, '異國料理'),
+(6, '涼麵'),
+(7, '關東煮'),
+(8, '大亨堡');
 
 -- --------------------------------------------------------
 
@@ -55,7 +81,36 @@ INSERT INTO `product` (`p_id`, `p_name`, `inventory`, `amount`, `price`, `safty_
 (12, '藥膳雞湯', 20, 20, 60, 5, 0, 0),
 (13, '御選紅燒牛肉麵-半筋半肉', 20, 20, 129, 5, 0, 0),
 (14, '金黃菠蘿奶霜麵包', 20, 20, 30, 5, 0, 0),
-(15, '丹麥起司火腿', 20, 20, 35, 5, 0, 0);
+(15, '丹麥起司火腿', 20, 20, 35, 5, 0, 0),
+(16, '海鮮雙手卷', 20, 20, 39, 5, 0, 0),
+(17, '招牌雙手卷', 20, 20, 39, 5, 0, 0),
+(18, '麻醬涼麵(原味)', 20, 20, 45, 5, 5, 6),
+(19, '海南雞飯糰', 20, 20, 30, 5, 5, 1),
+(20, '蔥鹽烤肉飯糰', 20, 20, 30, 5, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `supplier`
+--
+
+CREATE TABLE `supplier` (
+  `s_id` int(11) NOT NULL COMMENT '供應商編號',
+  `s_name` varchar(20) NOT NULL COMMENT '供應商名稱',
+  `s_tel` varchar(10) NOT NULL COMMENT '供應商電話'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- 資料表的匯出資料 `supplier`
+--
+
+INSERT INTO `supplier` (`s_id`, `s_name`, `s_tel`) VALUES
+(1, '鼎正有限公司', '0229021316'),
+(2, '嘉全果菜生產合作社', '052761310'),
+(3, '合富水果行', '052955313'),
+(4, '正豐農畜產品有限公司', '057811396'),
+(5, '美食家食材通路股份有限公司', '062935926'),
+(6, '立台食品工業股份有限公司', '0229953412');
 
 -- --------------------------------------------------------
 
@@ -87,11 +142,17 @@ INSERT INTO `user_account` (`ID`, `name`, `ssd`, `birthday`, `email`, `username`
 (5, 'kk', 'a123456789', '1995-01-03', 'kk@kkmail.com', 'kk3211', '8d145c723566303c247eb3942f7c0bac', 0, '2018-01-09 02:46:30'),
 (6, 'abcd', 'A163027459', '2018-01-10', 'abcd@abcd.com', 'abcd', 'e2fc714c4727ee9395f324cd2e7f331f', 0, '2018-01-10 07:34:21'),
 (7, 'aaaa', 'A112233449', '2018-01-01', 'ab@ab.com', 'ak', 'bf1c8929a665f6df9a6f3ee44091f5c0', 0, '2018-01-10 09:10:32'),
-(8, '', '', '0000-00-00', '', '', 'd41d8cd98f00b204e9800998ecf8427e', 0, '2018-01-10 09:24:20');
+(9, 'aaa', 'E123456783', '2018-01-16', 'qwe@aaa.aaa', 'aaa', '0567212991e29fa44ca3a6189a911a5f', 0, '2018-01-17 09:13:54');
 
 --
 -- 已匯出資料表的索引
 --
+
+--
+-- 資料表索引 `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`c_id`);
 
 --
 -- 資料表索引 `product`
@@ -99,6 +160,12 @@ INSERT INTO `user_account` (`ID`, `name`, `ssd`, `birthday`, `email`, `username`
 ALTER TABLE `product`
   ADD PRIMARY KEY (`p_id`),
   ADD UNIQUE KEY `p_name` (`p_name`);
+
+--
+-- 資料表索引 `supplier`
+--
+ALTER TABLE `supplier`
+  ADD PRIMARY KEY (`s_id`);
 
 --
 -- 資料表索引 `user_account`
@@ -113,15 +180,25 @@ ALTER TABLE `user_account`
 --
 
 --
+-- 使用資料表 AUTO_INCREMENT `category`
+--
+ALTER TABLE `category`
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '類別編號', AUTO_INCREMENT=10;
+--
 -- 使用資料表 AUTO_INCREMENT `product`
 --
 ALTER TABLE `product`
-  MODIFY `p_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '產品編號', AUTO_INCREMENT=16;
+  MODIFY `p_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '產品編號', AUTO_INCREMENT=21;
+--
+-- 使用資料表 AUTO_INCREMENT `supplier`
+--
+ALTER TABLE `supplier`
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '供應商編號', AUTO_INCREMENT=8;
 --
 -- 使用資料表 AUTO_INCREMENT `user_account`
 --
 ALTER TABLE `user_account`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

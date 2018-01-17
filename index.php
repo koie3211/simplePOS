@@ -1,8 +1,9 @@
-<!DOCTYPE html>
 <?php
-  session_start();
+  require_once 'common.php';
+  checkUserValidate();
   if(isset($_SESSION['is_login']) && $_SESSION['is_login']==true):
-?>
+ ?>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -13,7 +14,7 @@
   </head>
   <body>
     <?php include_once("menu.php") ?>
-    <iframe class="main">
+    <iframe src="welcome.php" class="main" name="view_frame">
     </iframe>
   </body>
 </html>
