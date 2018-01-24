@@ -9,29 +9,27 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/common.css">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script type="text/javascript" src="js/add.js">
+    <script type="text/javascript" src="js/search.js">
 
     </script>
-    <title>新增供應商</title>
+    <title>查詢產品</title>
   </head>
   <body>
     <br>
-    <h1>新增供應商</h1>
+    <h1>查詢產品</h1>
     <div class="common_div">
-      <form class="addsupplier_form">
+      <form class="serchproduct_form">
 
       <div class="form-group">
-        <label for="s_name">供應商名稱</label>
-        <input type="text" class="form-control" id="s_name" placeholder="Enter supplier name">
-      </div>
-
-      <div class="form-group">
-        <label for="s_tel">聯絡電話</label>
-        <input type="number" class="form-control" id="s_tel" placeholder="Enter tel">
+        <label for="p_name">產品名稱</label>
+        <input type="text" class="form-control" id="p_name" placeholder="Enter product name">
       </div>
 
       <button type="submit" class="btn btn-primary">送出</button>
     </form>
+    </div>
+    <br>
+    <div id="result" class="common_div">
     </div>
   </body>
 </html>

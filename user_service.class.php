@@ -26,7 +26,7 @@
       $sql = "SELECT `name` FROM `user_account` WHERE `username` = '{$user}'";
       $arr = $dbconfig->excute_dql($sql);
       $dbconfig->close();
-      if (count($arr[0])>=1) {
+      if (count($arr)>=1) {
         return "no";
       }else {
         return "yes";

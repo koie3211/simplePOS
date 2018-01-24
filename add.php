@@ -42,7 +42,7 @@
       }
       break;
     default:
-      echo $kind;
+      header('Location: login.php?err=2');
       break;
   }
  ?>

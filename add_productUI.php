@@ -9,7 +9,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/add.css">
+    <link rel="stylesheet" href="css/common.css">
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript" src="js/add.js">
 
@@ -19,7 +19,7 @@
   <body>
     <br>
     <h1>新增產品</h1>
-    <div class="add_div">
+    <div class="common_div">
       <form class="addproduct_form">
 
       <div class="form-group">

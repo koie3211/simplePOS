@@ -1,0 +1,34 @@
+$(document).on('ready',function(){
+  //查詢產品
+  $('.serchproduct_form').on('submit',function(){
+    $.ajax({
+      type:'POST',
+      url:'search.php',
+      data:{
+        kind:'product',
+        p_name:$('#p_name').val()
+      },
+      dataType:'html'
+    }).done(function(data){
+      //console.log(data);
+      $('#result').html(data);
+    });
+    return false;
+  });
+  //查詢供應商
+  $('.serchsupplier_form').on('submit',function(){
+    $.ajax({
+      type:'POST',
+      url:'search.php',
+      data:{
+        kind:'supplier',
+        s_name:$('#s_name').val()
+      },
+      dataType:'html'
+    }).done(function(data){
+      //console.log(data);
+      $('#result').html(data);
+    });
+    return false;
+  });
+});

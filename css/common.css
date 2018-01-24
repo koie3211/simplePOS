@@ -1,0 +1,20 @@
+body{
+  background-color: #282C34;
+  color: #939CA9;
+}
+.main{
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  width: 85%;
+  height: 800px;
+}
+.common_div{
+  height: 80%;
+  width: 90%;
+  margin: 0px auto;
+  overflow-y: auto;
+}
+h1{
+  text-align: center;
+}

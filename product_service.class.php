@@ -27,6 +27,32 @@
       $dbconfig->close();
       return $b;
     }
+    //查詢產品
+    function SearchProduct($p_name){
+      $dbconfig = new dbconfig();
+      $sql = "SELECT * FROM `product` WHERE `p_name` LIKE '%{$p_name}%'";
+      $arr = $dbconfig->excute_dql($sql);
+      $dbconfig->close();
+      return $arr;
+    }
+    //查詢供應商
+    function SearchSupplier($s_name){
+      $dbconfig = new dbconfig();
+      $sql = "SELECT * FROM `supplier` WHERE `s_name` LIKE '%{$s_name}%'";
+      $arr = $dbconfig->excute_dql($sql);
+      $dbconfig->close();
+      return $arr;
+    }
+    //查詢總庫存
+    function SearchInventory(){
+      $dbconfig = new dbconfig();
+      $sql = "SELECT `product`.`p_id`,`product`.`p_name`,`supplier`.`s_name`
+                    ,`product`.`s_id`,`product`.`inventory`,`product`.`price`
+                    FROM `product`,`supplier` WHERE `product`.`s_id` = `supplier`.`s_id`";
+      $arr = $dbconfig->excute_dql($sql);
+      $dbconfig->close();
+      return $arr;
+    }
     //取得類別名稱
     function GetCategory(){
       $dbconfig = new dbconfig();
@@ -42,6 +68,24 @@
       $arr = $dbconfig->excute_dql($sql);
       $dbconfig->close();
       return $arr;
+    }
+
+    //取得產品
+    function GetProduct($p_id){
+      $dbconfig = new dbconfig();
+      $sql = "SELECT * FROM `product` WHERE `p_id` = {$p_id}";
+      $arr = $dbconfig->excute_dql($sql);
+      $dbconfig->close();
+      return $arr;
+    }
+    //結帳?
+    function Sales($arr,$inventory){
+      $dbconfig = new dbconfig();
+      $i = $arr[0]['inventory'] - $inventory;
+      $sql = "UPDATE `product` SET `inventory` = {$i} WHERE `p_id` = {$arr[0]['p_id']};";
+      $b = $dbconfig->excute_dml($sql);
+      $dbconfig->close();
+      return $b;
     }
   }
 
