@@ -15,7 +15,7 @@ style="position: fixed;
     if ($_SESSION['position']==1):
    ?>
   <li><a href="salesUI.php" target="view_frame">銷售商品</a></li>
-  <li><a href="#" target="view_frame">庫存查詢</a></li>
+  <li><a href="search_amountUI.php" target="view_frame">庫存查詢</a></li>
   <li></li>
   <li><a href="#" target="view_frame">進貨明細</a></li>
   <li><a href="#" target="view_frame">進貨單</a></li>

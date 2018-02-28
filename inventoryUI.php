@@ -17,6 +17,21 @@
     <h1>總庫存</h1>
     <br>
     <div id="inventory_result" class="common_div">
+      <br>
+      <table class='table table-hover'>
+        <thead>
+          <tr>
+            <th scope='col'>產品編號</th>
+            <th scope='col'>產品名稱</th>
+            <th scope='col'>供應商名稱</th>
+            <th scope='col'>供應商編號</th>
+            <th scope='col'>產品數量</th>
+            <th scope='col'>產品單價</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+        </tbody>
+      </table>
     </div>
     <br>
   </body>

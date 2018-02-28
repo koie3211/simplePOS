@@ -12,16 +12,16 @@
     <script type="text/javascript" src="js/search.js">
 
     </script>
-    <title>查詢產品</title>
+    <title>庫存查詢</title>
   </head>
   <body>
     <br>
-    <h1>查詢產品</h1>
+    <h1>庫存查詢</h1>
     <div class="common_div">
-      <form class="serchproduct_form">
+      <form class="serchamount_form">
 
       <div class="form-group">
-        <label for="p_name">產品名稱</label>
+        <label for="p_name">名稱/編號</label>
         <input type="text" class="form-control" id="p_name" placeholder="Enter product name">
       </div>
 

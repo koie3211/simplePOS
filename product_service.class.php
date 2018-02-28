@@ -3,10 +3,10 @@
 
   class ProductService{
     //新增產品
-    function AddProduct($p_name,$inventory,$amount,$price,$safty_inventory,$sid,$cid){
+    function AddProduct($p_name,$inventory,$price,$safty_inventory,$sid,$cid){
       $dbconfig = new dbconfig();
-      $sql = "INSERT INTO `product` (`p_name`,`inventory`,`amount`,`price`,`safty_inventory`,`s_id`,`c_id`)
-                              VALUES('{$p_name}',$inventory,$amount,$price,$safty_inventory,$sid,$cid)";
+      $sql = "INSERT INTO `product` (`p_name`,`inventory`,`price`,`safty_inventory`,`s_id`,`c_id`)
+                              VALUES('{$p_name}',$inventory,$price,$safty_inventory,$sid,$cid)";
       $b = $dbconfig->excute_dml($sql);
       $dbconfig->close();
       return $b;
@@ -31,6 +31,13 @@
     function SearchProduct($p_name){
       $dbconfig = new dbconfig();
       $sql = "SELECT * FROM `product` WHERE `p_name` LIKE '%{$p_name}%'";
+      $arr = $dbconfig->excute_dql($sql);
+      $dbconfig->close();
+      return $arr;
+    }
+    function SearchProductById($p_name){
+      $dbconfig = new dbconfig();
+      $sql = "SELECT * FROM `product` WHERE `p_id` = {$p_name}";
       $arr = $dbconfig->excute_dql($sql);
       $dbconfig->close();
       return $arr;
@@ -78,11 +85,19 @@
       $dbconfig->close();
       return $arr;
     }
-    //結帳?
-    function Sales($arr,$inventory){
+    //檢查要購買商品的庫存是否還夠
+    function SearchAmount($p_id){
       $dbconfig = new dbconfig();
-      $i = $arr[0]['inventory'] - $inventory;
-      $sql = "UPDATE `product` SET `inventory` = {$i} WHERE `p_id` = {$arr[0]['p_id']};";
+      $sql = "SELECT `inventory` FROM `product` WHERE `p_id` = {$p_id}";
+      $arr = $dbconfig->excute_dql($sql);
+      $dbconfig->close();
+      return $arr;
+    }
+    //結帳?
+    function Sales($p_id,$inventory,$amount){
+      $dbconfig = new dbconfig();
+      $inventory -= $amount;
+      $sql = "UPDATE `product` SET `inventory` = {$inventory} WHERE `p_id` = {$p_id};";
       $b = $dbconfig->excute_dml($sql);
       $dbconfig->close();
       return $b;

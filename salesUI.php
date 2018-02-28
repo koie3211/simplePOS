@@ -1,6 +1,7 @@
 <?php
   require_once 'common.php';
   checkUserValidate();
+  $_SESSION['Sales'] = "";
  ?>
 <!DOCTYPE html>
 <html>
@@ -34,16 +35,42 @@
               <td><input type="text" class="form-control" id="p_id"></td>
               <td><input type="text" class="form-control" id="p_name" disabled></td>
               <td><input type="text" class="form-control" id="price" disabled></td>
-              <td><input type="text" class="form-control" id="inventory"></td>
+              <td><input type="text" class="form-control" id="amount"></td>
               <td><input type="text" class="form-control" id="subtotal" disabled></td>
             </tr>
           </tbody>
         </table>
-      <button type="submit" class="btn btn-primary">送出</button>
+      <button type="submit" class="btn btn-primary">輸入</button>
     </form>
     </div>
     <br>
     <div id="result" class="common_div">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">產品編號</th>
+            <th scope="col">產品名稱</th>
+            <th scope="col">產品單價</th>
+            <th scope="col">產品數量</th>
+            <th scope="col">小計</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+        </tbody>
+      </table>
+      <br>
+      <div class="common_div">
+        <table align="right">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>總額：<span class="total">0</span></td>
+            <td align="right"><button type="button" class="btn btn-primary" id="sales_btn" disabled>結帳</button></td>
+          </tr>
+        </table>
+      </div>
     </div>
   </body>
 </html>

@@ -30,6 +30,18 @@
     </div>
     <br>
     <div id="result" class="common_div">
+      <br>
+        <table class='table table-hover'>
+          <thead>
+            <tr>
+              <th scope='col'>供應商編號</th>
+              <th scope='col'>供應商名稱</th>
+              <th scope='col'>供應商電話</th>
+            </tr>
+          </thead>
+        <tbody class="tbody">
+        </tbody>
+      </table>
     </div>
   </body>
 </html>

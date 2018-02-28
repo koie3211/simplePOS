@@ -8,7 +8,6 @@ $(document).on('ready',function(){
         kind:'product',
         p_name:$('#p_name').val(),
         inventory:$('#inventory').val(),
-        amount:$('#amount').val(),
         price:$('#price').val(),
         safty_inventory:$('#safty_inventory').val(),
         sid:$('#s_id option:selected').val(),

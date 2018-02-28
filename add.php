@@ -8,12 +8,11 @@
     case 'product':
       $p_name = $_POST['p_name'];
       $inventory = $_POST['inventory'];
-      $amount = $_POST['amount'];
       $price = $_POST['price'];
       $safty_inventory = $_POST['safty_inventory'];
       $sid = $_POST['sid'];
       $cid = $_POST['cid'];
-      $b = $productService->AddProduct($p_name,$inventory,$amount,$price,$safty_inventory,$sid,$cid);
+      $b = $productService->AddProduct($p_name,$inventory,$price,$safty_inventory,$sid,$cid);
       if ($b == "1") {
         echo "yes";
       }else {

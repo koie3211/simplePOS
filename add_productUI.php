@@ -33,11 +33,6 @@
       </div>
 
       <div class="form-group">
-        <label for="amount">訂購量</label>
-        <input type="number" class="form-control" id="amount" placeholder="Enter amount">
-      </div>
-
-      <div class="form-group">
         <label for="price">單價</label>
         <input type="number" class="form-control" id="price" placeholder="Enter price">
       </div>
