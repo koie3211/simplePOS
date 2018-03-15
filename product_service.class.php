@@ -35,9 +35,10 @@
       $dbconfig->close();
       return $arr;
     }
-    function SearchProductById($p_name){
+    //用編號查詢產品
+    function SearchProductById($p_id){
       $dbconfig = new dbconfig();
-      $sql = "SELECT * FROM `product` WHERE `p_id` = {$p_name}";
+      $sql = "SELECT * FROM `product` WHERE `p_id` = {$p_id}";
       $arr = $dbconfig->excute_dql($sql);
       $dbconfig->close();
       return $arr;
@@ -76,7 +77,6 @@
       $dbconfig->close();
       return $arr;
     }
-
     //取得產品
     function GetProduct($p_id){
       $dbconfig = new dbconfig();
@@ -93,6 +93,14 @@
       $dbconfig->close();
       return $arr;
     }
+    //找出低於安全庫存的商品
+    function CheckInventory(){
+      $dbconfig = new dbconfig();
+      $sql = "SELECT * FROM `product` WHERE `inventory` <= `safty_inventory`";
+      $arr = $dbconfig->excute_dql($sql);
+      $dbconfig->close();
+      return $arr;
+    }
     //結帳?
     function Sales($p_id,$inventory,$amount){
       $dbconfig = new dbconfig();
@@ -101,6 +109,19 @@
       $b = $dbconfig->excute_dml($sql);
       $dbconfig->close();
       return $b;
+    }
+    function AddExport($p_id,$inventory,$amount){
+      // $arr = SearchAmount($p_id);
+      // if ($arr[0]['inventory']>=$amount) {
+      //   $dbconfig = new dbconfig();
+      //   $sql = "INSERT INTO `export` (`p_id`,`amount`,`e_date`) VALUES ($p_id,$amount,date('Y-m-d H:i:s'))";
+      //   $b = $dbconfig->excute_dml($sql);
+      //   if (condition) {
+      //     # code...
+      //   }
+      //   $dbconfig->close();
+      //   return $b;
+      // }
     }
   }
 

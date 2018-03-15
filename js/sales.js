@@ -56,6 +56,7 @@ $(document).on('ready',function(){
         //console.log(data);
         $('.tbody').html("");
         insertList(data);
+        getTotal();
         i++;
         $('#p_id').val("");
         clear();
@@ -102,6 +103,7 @@ function del(id){
     //console.log(data);
     $('.tbody').html("");
     insertList(data);
+    getTotal();
     });
 }
 //清空輸入欄位
@@ -132,6 +134,5 @@ function insertList(data){
     td_btn = $('<td>').append(btn);
     tr_data = $('<tr>').attr('id',id).append(td_id,td_name,td_price,td_amount,td_subtotal,td_btn);
     $('.tbody').append(tr_data);
-    getTotal();
   });
 }

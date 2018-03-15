@@ -44,6 +44,8 @@
         }
         if ($str == "") {
           foreach ($_SESSION['Sales'] as $key => $value) {
+            $arr = $productService->Searchamount($value['p_id']);
+            $inventory = $arr[0]['inventory'];
             $b = $productService->Sales($value['p_id'],$inventory,$value['amount']);
           }
           unset($_SESSION['Sales']) ;
